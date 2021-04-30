@@ -1,0 +1,56 @@
+<!--<div class = 'row form-group'>-->
+<!--  <div class="col" >-->
+<!--    <input [(ngModel)]="name" placeholder="Saisir le nom du pokemon" class="form-control">-->
+<!--  </div>-->
+<!--  <div class="col" >-->
+<!--    <input [(ngModel)]="name" placeholder="Valeur saisie" readonly class="form-control">-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class = 'row form-group'>-->
+<!--  <div class="col">-->
+<!--    <input type="text" placeholder="Filtrer à partir du nom" [(ngModel)]="searchTerm" class="form-control">-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <select [(ngModel)]="pokemonSelectedId" class="form-control">-->
+<!--      <option [value]="pokemon.getId()" *ngFor="let pokemon of pokemons | filterPokemonPipe: searchTerm" >{{pokemon.getName()}} </option>-->
+<!--    </select>-->
+<!--  </div>-->
+<!--  <div class="col">-->
+<!--    <button (click)="getPokemonSelectedInfo()" class = "form-control btn btn-success">Voir les details du pokemon selectionné!</button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row form-group">-->
+<!--  <app-pokemon-info class="col" [pokemonSelectedInfo]="pokemonSelectedInfos" *ngIf="pokemonSelectedInfos"></app-pokemon-info>-->
+<!--</div>-->
+
+<input [(ngModel)]="id">
+<br>
+<br>
+<input readonly [(ngModel)]="id">
+<br>
+<br>
+Le texte saisi est: {{id}}
+<br>
+<br>
+<input [(ngModel)]="searchPokeName">
+<br>
+<br>
+<select [(ngModel)]="selectedPokeId">
+      <option [value]="poke.id" *ngFor="let poke of pokes | filterPokemonPipe:'name':searchPokeName ">{{poke.name}}</option>
+<!--  <option [value]="poke.id" *ngFor="let poke of pokes | filterPokemonPipe: searchTerm" >{{pokemon.getName()}} </option>-->
+</select>
+<br>
+<br>
+L'id du pokemon selectionné est: {{selectedPokeId}}
+<br>
+<!--<ul>-->
+<!--  <li *ngFor="let poke of pokes">{{poke.name}}</li>-->
+<!--</ul>-->
+<button (click)="getPokemonSelectedInfo()" class = "form-control btn btn-success">Afficher les details </button>
+<br>
+<br>
+<div *ngIf="pokeInfo">
+
+  <app-pokedetail [detail]="pokeInfo"></app-pokedetail>
+
+</div>
